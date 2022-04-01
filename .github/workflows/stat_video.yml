@@ -43,10 +43,10 @@ jobs:
         git add Statistician/v.json
         git commit -m "auto commit"
     - name: Pull changes
-        run: git pull -r
+      run: git pull -r
     - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
