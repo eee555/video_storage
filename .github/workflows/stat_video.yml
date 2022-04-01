@@ -45,7 +45,8 @@ jobs:
         git config --local user.name "GitHub Action"
         git add Statistician/v.json
         git commit -m "new commit"
-        git push origin main
+    - name: Push changes
+      uses: ad-m/github-push-action@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
