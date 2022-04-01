@@ -46,5 +46,7 @@ jobs:
         git add Statistician/v.json
         git commit -m "new commit"
         git push origin main
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
