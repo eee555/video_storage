@@ -37,7 +37,7 @@ jobs:
     - name: start statistical videos
       run: |
         cd Statistician
-        python stat.py --video_dir ../videos  > v.json
+        python python stat.py --video_dir ../videos --username ${{ github.repository_owner }} --token ${{ secrets.GITHUB_TOKEN }}
         cd ..
     - name: Commit changes
       run: |
