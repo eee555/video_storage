@@ -43,7 +43,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit v.json -m "new commit"
+        git add Statistician/v.json
+        git commit -m "new commit"
         git push origin master
 
 
