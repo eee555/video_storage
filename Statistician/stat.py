@@ -16,7 +16,7 @@ def stat(video_dir):
         a.parse_video()
         a.analyse()
         json_list.append({"player": a.player, "rtime": a.r_time, "bbbv": a.bbbv})
-    #filename = "v.json"
+    filename = "v.json"
     with open(filename, 'w') as file_obj:
         json.dump(json_list, file_obj)
 if __name__ == '__main__':
