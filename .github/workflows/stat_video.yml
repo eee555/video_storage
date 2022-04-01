@@ -38,7 +38,7 @@ jobs:
       run: |
         cd Statistician
         python stat.py --video_dir ../videos
-	cd ..
+        cd ..
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
