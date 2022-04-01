@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -41,10 +41,13 @@ jobs:
         cd ..
     - name: push
       run: |
-        git config --local user.email "2234208506@qq.com"
-        git config --local user.name "eee555"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add Statistician/v.json
-        git commit -m "new commit"
-        git push origin main
+        git commit -m "auto commit"
+    - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
