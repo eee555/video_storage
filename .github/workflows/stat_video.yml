@@ -37,7 +37,7 @@ jobs:
     - name: start statistical videos
       run: |
         cd Statistician
-        python stat.py --video_dir ../videos
+        python stat.py --video_dir ../videos  > v.json
         cd ..
     - name: Commit changes
       run: |
