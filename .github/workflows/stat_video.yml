@@ -9,9 +9,6 @@ on:
   pull_request:
     branches: [ main ]
 
-permissions:
-  contents: read
-
 jobs:
   build:
 
@@ -45,6 +42,8 @@ jobs:
         git config --local user.name "GitHub Action"
         git add Statistician/v.json
         git commit -m "auto commit"
+    - name: Pull changes
+        run: git pull -r
     - name: Push changes
         uses: ad-m/github-push-action@master
         with:
