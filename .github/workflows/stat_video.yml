@@ -37,7 +37,7 @@ jobs:
     - name: start statistical videos
       run: |
         cd Statistician
-        python python stat.py --video_dir ../videos > v.json
+        python stat.py --video_dir ../videos > v.json
         cd ..
     - name: push
       uses: github-actions-x/commit@v2.8
