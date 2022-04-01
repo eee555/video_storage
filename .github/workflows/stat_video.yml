@@ -41,13 +41,10 @@ jobs:
         cd ..
     - name: push
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "2234208506@qq.com"
+        git config --local user.name "eee555"
         git add Statistician/v.json
         git commit -m "new commit"
-    - name: Push changes
-      uses: ad-m/github-push-action@main
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        git push origin master
 
 
