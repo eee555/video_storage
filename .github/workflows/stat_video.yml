@@ -40,12 +40,10 @@ jobs:
         python stat.py --video_dir ../videos > v.json
         cd ..
     - name: push
-      uses: github-actions-x/commit@v2.8
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: 'main'
-        commit-message: 'publish'
-        force-add: 'true'
-        files: v.json
-        name: auto commit
-        email: my.github@email.com 
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit v.json -m "new commit"
+        git push origin master
+
+
