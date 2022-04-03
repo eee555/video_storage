@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <Leaderboard msg="Welcome to Your Vue.js App"/>
+    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+    <Leaderboard msg="（名字还没想好的）扫雷网"/>
   </div>
 </template>
 

@@ -23,6 +23,11 @@ const routes = [
     component: Player
   },
   {
+    path: '/video/:file',
+    name: 'video',
+    component: Player
+  },
+  {
     path: '/:notfound(.*)',
     name: '404',
     component: NotFoundView
