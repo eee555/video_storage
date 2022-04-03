@@ -4,11 +4,11 @@
     <ol>
       <router-link
         tag="li"
-        :to="{ name: 'player', params: { id: item.bbbv } }"
+        :to="{ name: 'player', params: { id: i } }"
         v-for="(item, i) in leaderboard"
         :key="i"
-        >{{ item.player }} -- {{ item.bbbv }} -- {{ item.rtime }}<br
-      /></router-link>
+        ><LeaderboardItem :player=i :item=item></LeaderboardItem
+      ></router-link>
       <!-- <li v-for="(item, i) in leaderboard" :key="i">{{ item.player }} -- {{ item.bbbv }} -- {{ item.rtime }}</li> -->
     </ol>
   </div>
@@ -16,19 +16,21 @@
 
 <script>
 import { onMounted } from "vue";
-import jsonData from "/static/v.json";
+import jsonData from "/static/l.json";
+import LeaderboardItem from "@/components/LeaderboardItem.vue";
 export default {
   name: "Leaderboard",
+  components: { LeaderboardItem },
   props: {
     msg: String,
   },
-  setup() {
-    onMounted(() => {
-      // commonJson = jsonData;
-      // console.log(commonJson);
-      console.log(jsonData);
-    });
-  },
+  // setup() {
+  //   onMounted(() => {
+  //     // commonJson = jsonData;
+  //     // console.log(commonJson);
+  //     console.log(jsonData);
+  //   });
+  // },
   data() {
     return {
       leaderboard: jsonData,

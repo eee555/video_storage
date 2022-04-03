@@ -13,14 +13,15 @@ from io import StringIO
 def stat(video_dir):
     avfs = os.listdir(video_dir)
     video_info_list = []
-    for avf in avfs:
-        avf = video_dir + r"/" + avf
+    for avf_ in avfs:
+        avf = video_dir + r"/" + avf_
         a = ms.AvfVideo(avf)
         a.parse_video()
         a.analyse()
         video_info_list.append({"player": a.player, "row": a.row, 
                                 "column": a.column, "mine_num": a.mine_num, 
-                                "rtime": a.r_time, "bbbv": a.bbbv, "bbbv_s": a.bbbv_s})
+                                "rtime": a.r_time, "bbbv": a.bbbv, "bbbv_s": a.bbbv_s,
+                                "file": avf_})
         
     click.echo(json.dumps(video_info_list))
     
