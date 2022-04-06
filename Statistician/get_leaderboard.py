@@ -3,6 +3,8 @@ import os, click, sys
 import json
 from io import StringIO
 
+# 获取仓库中的所有玩家的排名，由于仅有一个玩家，拟弃用。
+
 # i.e.
 # python get_leaderboard.py --json_dir ../meta-minesweeper/static/v.json > ../meta-minesweeper/static/l.json
 

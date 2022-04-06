@@ -34,14 +34,14 @@ jobs:
     - name: start statistical videos
       run: |
         cd Statistician
-        python stat_video.py --video_dir ../videos > ../meta-minesweeper/static/v.json
-        python get_leaderboard.py --json_dir ../meta-minesweeper/static/v.json > ../meta-minesweeper/static/l.json
+        python stat_video.py > ../meta-minesweeper/static/v.json
+        python get_medal.py --json_dir ../meta-minesweeper/static/v.json > ../meta-minesweeper/static/medal.json
         cd ..
     - name: push
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add meta-minesweeper/static/v.json meta-minesweeper/static/l.json
+        git add meta-minesweeper/static/v.json meta-minesweeper/static/medal.json
         git commit -m "auto commit"
     - name: Pull changes
       run: git pull -r
