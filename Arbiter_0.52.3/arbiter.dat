@@ -1,6 +1,6 @@
 ;Minesweeper Arbiter (Version 0.52.3)
 ;Configuration File
-;Saved Wed, 06 apr 2022 at 22_03_34
+;Saved Wed, 06 apr 2022 at 22_07_26
 ;Read-only! Manual edition prohibited!
 
 [GLOBALS]
@@ -57,7 +57,7 @@ CustomTimeZone=0
 CursorFileName=
 
 [GAME STYLE]
-doStartUpMode=2
+doStartUpMode=0
 skinNumber=0
 skinTimerNumber=0
 doMarks=0
