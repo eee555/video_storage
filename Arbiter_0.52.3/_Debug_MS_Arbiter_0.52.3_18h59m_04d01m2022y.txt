@@ -1,0 +1,20 @@
+18:59:12:374 hack found. abnormal program termination
+18:59:12:373 weird time
+18:58:59:558 expert mode selected
+18:58:59:463 intermediate mode selected
+18:58:48:860 expert mode selected
+18:58:48:735 intermediate mode selected
+18:58:00:211 ---
+18:58:00:210 who of them got the skills to test me?
+18:58:00:210 ---
+18:58:00:209 warp field stabilized. opening gate to the minesweeper world
+18:58:00:209 encrypt_engine test ok
+18:58:00:208 encrypt_engine testing ...
+18:58:00:208 ---
+18:58:00:207 language  | 00000804
+18:58:00:202 timezone  | 中国标准时间 (GMT +8:00)
+18:58:00:201 platform  | Windows NT 6.2 build 9200, 
+18:58:00:201 memory    | 2047,0 of 2047,0 MB RAM free
+18:58:00:200 cpu speed | run the command get_cpu_speed
+18:58:00:200 date      | Tue, 04.01.2022, process 0x0060053A launched
+18:58:00:190 path      | C:\USERS\JIA32\DESKTOP\ARBITER_0.52.3\

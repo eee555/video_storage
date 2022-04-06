@@ -1,0 +1,31 @@
+19:27:48:068 hack found. abnormal program termination
+19:27:48:065 weird time
+19:25:23:614 high score replay automatically saved
+19:23:59:042 expert mode selected
+19:23:58:917 intermediate mode selected
+19:23:51:341 expert mode selected
+19:23:04:185 expert mode selected
+19:23:02:866 memory_usage: [19:23] 2147483647 ==> used 0
+19:23:02:865 expert mode selected
+19:22:36:488 expert mode selected
+19:22:21:916 expert mode selected
+19:22:21:791 intermediate mode selected
+19:22:17:884 expert mode selected
+19:22:17:703 memory_usage: [19:22] 2147483647 ==> used 0
+19:22:17:702 intermediate mode selected
+19:20:03:406 memory_usage: [19:20] 2147483647 ==> used 0
+19:20:03:405 expert mode selected
+19:18:13:205 ---
+19:18:13:204 who of them got the skills to test me?
+19:18:13:204 ---
+19:18:13:203 warp field stabilized. opening gate to the minesweeper world
+19:18:13:203 encrypt_engine test ok
+19:18:13:201 encrypt_engine testing ...
+19:18:13:201 ---
+19:18:13:200 language  | 00000804
+19:18:13:194 timezone  | 中国标准时间 (GMT +8:00)
+19:18:13:193 platform  | Windows NT 6.2 build 9200, 
+19:18:13:193 memory    | 2047,0 of 2047,0 MB RAM free
+19:18:13:192 cpu speed | run the command get_cpu_speed
+19:18:13:191 date      | Thu, 12.11.2020, process 0x00271152 launched
+19:18:13:180 path      | C:\USERS\JIA32\DESKTOP\ARBITER_0.52.3\
