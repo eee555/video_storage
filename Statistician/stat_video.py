@@ -19,10 +19,16 @@ def stat():
         except:
             continue
         for avf_ in avfs:
+            if avf_.split('.')[-1] != 'avf':
+                continue
             avf = dir_ + r"/" + avf_
-            a = ms.AvfVideo(avf)
-            a.parse_video()
-            a.analyse()
+            try:
+                a = ms.AvfVideo(avf)
+                a.parse_video()
+                a.analyse()
+            except:
+                click.echo(avf_)
+                return
             video_info_list.append({"player": a.player, "row": a.row, 
                                     "column": a.column, "mine_num": a.mine_num, 
                                     "rtime": a.r_time, "bbbv": a.bbbv, "bbbv_s": a.bbbv_s,

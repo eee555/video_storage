@@ -1,2 +1,5 @@
 .spyproject
 .json
+*.pyd
+*.dll
+/Arbiter_0/.52/.3/
