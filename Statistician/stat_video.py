@@ -34,7 +34,7 @@ def stat():
                                     "rtime": a.r_time, "bbbv": a.bbbv, "bbbv_s": a.bbbv_s,
                                     "file": avf_})
             
-        click.echo(json.dumps(video_info_list))
+    click.echo(json.dumps(video_info_list))
     
     
     

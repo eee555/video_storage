@@ -2,7 +2,7 @@
 *.pyd
 *.dll
 *.ini
+meta-minesweeper/static/*.json
 /Arbiter_0.52.3/*
 !/Arbiter_0.52.3/replays/
 !/Arbiter_0.52.3/replays2/
-meta-minesweeper/static/.json
