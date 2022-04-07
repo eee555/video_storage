@@ -23,14 +23,14 @@ def main(json_dir):
                 pb['beg'][bv] = video['rtime']
         elif video['row'] == 16 and video['column'] == 16 and video['mine_num'] == 40:
             bv = video['bbbv']
-            if bv in pb['beg']:
+            if bv in pb['int']:
                 pb['int'][bv] = min(pb['int'][bv], video['rtime'])
             else:
                 pb['int'][bv] = video['rtime']
         elif video['row'] == 16 and video['column'] == 30 and video['mine_num'] == 99:
             bv = video['bbbv']
             if bv in pb['exp']:
-                pb['exp'][bv] = min(pb['int'][bv], video['rtime'])
+                pb['exp'][bv] = min(pb['exp'][bv], video['rtime'])
             else:
                 pb['exp'][bv] = video['rtime']
         else:
