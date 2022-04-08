@@ -135,7 +135,7 @@ export default {
   data() {
     return {
       pbData: pbData,
-      selected: { beg: -1, int: -1, exp: -1 },
+      selected: { beg: 0, int: 0, exp: 0 },
       choose(level, index) {
         this.selected[level] = index; //获得点击元素的index
       },

@@ -1,13 +1,15 @@
 <template>
-  <div id="pb_item" :style="classArray">
-    <div id="bbbv">{{ bbbv }}</div>
-    <div id="para" v-if="para == 0">{{ pb.level }}</div>
-    <div id="para" v-else-if="para == 1">{{ pb.bvs.toFixed(2) }}</div>
-    <div id="para" v-else-if="para == 2">{{ pb.stnb.toFixed(2) }}</div>
-    <div id="para" v-else-if="para == 3">{{ pb.rqp.toFixed(2) }}</div>
-    <br />
-    <p align="center" id="time">{{ pb.rtime.toFixed(2) }}s</p>
-  </div>
+  <router-link :to="{ name: 'video', params: { file: pb.file } }">
+    <div id="pb_item" :style="classArray">
+      <div id="bbbv">{{ bbbv }}</div>
+      <div id="para" v-if="para == 0">{{ pb.level }}</div>
+      <div id="para" v-else-if="para == 1">{{ pb.bvs.toFixed(2) }}</div>
+      <div id="para" v-else-if="para == 2">{{ pb.stnb.toFixed(2) }}</div>
+      <div id="para" v-else-if="para == 3">{{ pb.rqp.toFixed(2) }}</div>
+      <br />
+      <p align="center" id="time">{{ pb.rtime.toFixed(2) }}s</p>
+    </div></router-link
+  >
 </template>
 
 <script>
@@ -27,22 +29,22 @@ export default {
     let classArray = computed({
       get: () => {
         let rgb = get_color(props.pb, props.para);
-      // console.log(rgb);
+        // console.log(rgb);
         return `background-color: rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]});`;
       },
-    })
+    });
     // onUpdated(() => {
-      // commonJson = jsonData;
-      // console.log(commonJson);
-      // let rgb;
-      // rgb = get_color(props.pb, props.para);
-      // console.log(rgb);
-      // classArray = `background-color: rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]});`;
-      // console.log(classArray);
+    // commonJson = jsonData;
+    // console.log(commonJson);
+    // let rgb;
+    // rgb = get_color(props.pb, props.para);
+    // console.log(rgb);
+    // classArray = `background-color: rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]});`;
+    // console.log(classArray);
     // });
     return {
       classArray,
-    }
+    };
   },
 };
 </script>
@@ -73,6 +75,15 @@ export default {
   margin: 2px;
   font-size: 20px;
   margin: 9px 0px 3px 0px;
+}
+
+/* .router-link-active {
+  text-decoration: none;
+  color: black;
+} */
+a{
+  text-decoration: none;
+  color: black;
 }
 </style>
 

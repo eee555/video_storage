@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Player from '../components/Player.vue'
+import VideoDetail from '../components/VideoDetail.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const routes = [
@@ -17,15 +17,15 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
-  {
-    path: '/player/:id(\\d+)',
-    name: 'player',
-    component: Player
-  },
+  // {
+  //   path: '/player/:id(\\d+)',
+  //   name: 'player',
+  //   component: Player
+  // },
   {
     path: '/video/:file',
     name: 'video',
-    component: Player
+    component: VideoDetail
   },
   {
     path: '/:notfound(.*)',
