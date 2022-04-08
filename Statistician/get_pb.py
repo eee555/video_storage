@@ -20,28 +20,28 @@ def main(json_dir):
             if bv in pb['beg']:
                 pb['beg'][bv] = set_pb(pb['beg'][bv], video)
             else:
-                pb['beg'][bv] = {'rtime': video['rtime'], 'file': video['file']}
+                pb['beg'][bv] = set_pb(None, video)
         elif video['row'] == 16 and video['column'] == 16 and video['mine_num'] == 40:
             bv = video['bbbv']
             if bv in pb['int']:
                 pb['int'][bv] = set_pb(pb['int'][bv], video)
             else:
-                pb['int'][bv] = {'rtime': video['rtime'], 'file': video['file']}
+                pb['int'][bv] = set_pb(None, video)
         elif video['row'] == 16 and video['column'] == 30 and video['mine_num'] == 99:
             bv = video['bbbv']
             if bv in pb['exp']:
                 pb['exp'][bv] = set_pb(pb['exp'][bv], video)
             else:
-                pb['exp'][bv] = {'rtime': video['rtime'], 'file': video['file']}
+                pb['exp'][bv] = set_pb(None, video)
         else:
             ...
     click.echo(json.dumps(pb))
     
 def set_pb(old, new):
-    if old['rtime'] < new['rtime']:
-        return old
-    else:
-        return {'rtime': new['rtime'], 'file': new['file']}
+    if old:
+        if old['rtime'] < new['rtime']:
+            return old
+    return {'rtime': new['rtime'], 'file': new['file']}
     
        
 if __name__ == '__main__':
