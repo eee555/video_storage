@@ -55,6 +55,7 @@ jobs:
         npm install
         npm run build
         cd ..
+        mkdir meta-minesweeper/dist/video/
         cp Arbiter_0.52.3/replays/*.avf meta-minesweeper/dist/video/
         cp Arbiter_0.52.3/replays2/*.avf meta-minesweeper/dist/video/
     - name: buildAndDeploy
