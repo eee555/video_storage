@@ -49,10 +49,6 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: build
-      run: |
-        cd meta-minesweeper
-        npm run build
     - name: buildAndDeploy
       uses: JamesIves/github-pages-deploy-action@v4.3.0
       env:
