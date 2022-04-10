@@ -60,8 +60,8 @@ jobs:
         cp Arbiter_0.52.3/replays2/*.avf meta-minesweeper/dist/video/
     - name: buildAndDeploy
       uses: JamesIves/github-pages-deploy-action@v4.3.0
-      env:
-        token: ${{ secrets.ACCESS_TOKEN }}
+      with:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         branch: github-page
         folder: meta-minesweeper/dist
 
