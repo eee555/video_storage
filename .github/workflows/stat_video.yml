@@ -58,6 +58,7 @@ jobs:
         mkdir meta-minesweeper/dist/video/
         cp Arbiter_0.52.3/replays/*.avf meta-minesweeper/dist/video/
         cp Arbiter_0.52.3/replays2/*.avf meta-minesweeper/dist/video/
+        mv meta-minesweeper/public/video_storage/flop meta-minesweeper/dist/flop
     - name: buildAndDeploy
       uses: JamesIves/github-pages-deploy-action@v4.3.0
       with:
