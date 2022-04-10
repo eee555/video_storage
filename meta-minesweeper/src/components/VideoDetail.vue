@@ -57,7 +57,7 @@
   <iframe
     class="flop-player-iframe flop-player-display-none"
     style="width: 65%; height: 500px"
-    src="/flop/index.html"
+    src="/video_storage/flop/index.html"
     ref="video_iframe"
   ></iframe>
 </template>
@@ -125,7 +125,7 @@ export default {
         console.log(555);
       };
       // console.log(props.file);
-      request.open("GET", `/video/${props.file}`);
+      request.open("GET", `/video_storage/video/${props.file}`);
       request.responseType = "arraybuffer";
       request.send();
       // console.log(ms.laymine_number(16, 30, 99, 0, 0));
@@ -142,7 +142,7 @@ export default {
       );
       // 预期是一进入这个页面就自动开始播放props.file这个录像，在iframe标签的位置
 
-      const uri = `../video/${props.file}`
+      const uri = `../video_storage/video/${props.file}`
       // 等待 Flop Player 初始化完成
       window.flop = {
         onload: () => {
