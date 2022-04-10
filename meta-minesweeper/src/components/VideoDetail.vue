@@ -53,10 +53,11 @@
       style="width: 500px; height: 300px; display: inline-block"
     ></div>
   </div>
+  <!-- 代码可从 https://github.com/hgraceb/flop-player/releases 下载 -->
   <iframe
     class="flop-player-iframe flop-player-display-none"
     style="width: 75%; height: 600px"
-    src="/flop/demo.html"
+    src="/flop/index.html"
     ref="video_iframe"
   ></iframe>
 </template>
@@ -139,7 +140,30 @@ export default {
       console.log(
         props.file
       );
-      // 预期是一进入这个页面就自动开始播放props.file这个录像
+      // 预期是一进入这个页面就自动开始播放props.file这个录像，在iframe标签的位置
+
+      const uri = `../video/${props.file}`
+      // 等待 Flop Player 初始化完成
+      window.flop = {
+        onload: () => {
+          // 具体参数说明参见：https://github.com/hgraceb/flop-player#flopplayvideouri-options
+          window.flop.playVideo(uri, {
+            share: {
+              uri: uri,
+              pathname: '/flop-player/player',
+              anonymous: true,
+              background: '#eee',
+              title: 'Flop Player Share',
+              favicon: 'https://avatars.githubusercontent.com/u/38378650?s=32'
+            },
+            anonymous: false,
+            background: 'rgba(0, 0, 0, .5)',
+            listener: function () {
+              console.log('Flop player exit')
+            }
+          })
+        }
+      }
     });
     return {
       p,
