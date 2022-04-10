@@ -1,12 +1,69 @@
 <template>
   <div class="about">
-    <h1>录像分析：{{ $route.params.file }}</h1>
-    <div id="row" style="width: 500px; height: 300px"></div>
+    <h1>录像分析</h1>
+
+    <n-table striped style="width: 60%; margin: 0px auto">
+      <thead>
+        <tr>
+          <th>指标</th>
+          <th>数值</th>
+          <th>指标</th>
+          <th>数值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>标识</td>
+          <td>{{ p.player }}</td>
+          <td>3BV</td>
+          <td>{{ p.bv }}</td>
+        </tr>
+        <tr>
+          <td>rTime</td>
+          <td>{{ p.time }}</td>
+          <td>3BV/s</td>
+          <td>{{ p.bvs }}</td>
+        </tr>
+        <tr>
+          <td>Left/s</td>
+          <td>{{ p.lefts }}</td>
+          <td>Right/s</td>
+          <td>{{ p.rights }}</td>
+        </tr>
+        <tr>
+          <td>Chording/s</td>
+          <td>{{ p.chordings }}</td>
+          <td>Thrp</td>
+          <td>{{ p.thrp }}</td>
+        </tr>
+      </tbody>
+    </n-table>
+
+    <!-- <p class="detail">标识：{{ p.player }}</p>
+    <p class="detail">3BV：{{ p.bv }}</p>
+    <p class="detail">时间：{{ p.time }}</p>
+    <p class="detail">3BV/s：{{ p.bvs }}</p> -->
+    <br />
+    <div
+      id="row"
+      style="width: 500px; height: 300px; display: inline-block"
+    ></div>
+    <div
+      id="column"
+      style="width: 500px; height: 300px; display: inline-block"
+    ></div>
   </div>
+  <iframe
+    class="flop-player-iframe flop-player-display-none"
+    style="width: 75%; height: 600px"
+    src="/flop/demo.html"
+    ref="video_iframe"
+  ></iframe>
 </template>
 
 <script>
-import { onMounted, onBeforeMount } from "vue";
+import { onMounted, onBeforeMount, ref, getCurrentInstance } from "vue";
+import { get_x_track, get_y_track } from "../utils/get_track";
 import jsonData from "/static/v.json";
 import * as echarts from "echarts";
 // import * as ms from "ms-toollib";
@@ -16,54 +73,88 @@ export default {
   //   props: {
   //     msg: String,
   //   },
-  setup() {
-    onBeforeMount(() => {
-      console.log(ms);
-      const get_board = async () => {
-        while (board.length > 0) {
-          board.pop();
-        }
-        const ms = await import("ms-toollib");
-        const rows = 16;
-        const columns = 30;
-        let b = JSON.parse(
-          ms.laymine_solvable(rows, columns, 99, 0, 0, 100, 381, 10000, 40)
-        )[0];
-        for (let i = 0; i < rows; i++) {
-          board.push([]);
-          for (let j = 0; j < columns; j++) {
-            board[i].push(b[i][j]);
-          }
-        }
+  props: {
+    file: String,
+  },
+  setup(props) {
+    // const iframeWin = getCurrentInstance().ctx.$refs.video_iframe.contentWindow;
+    const p = ref({
+      player: "",
+      time: "",
+      bv: "",
+      bvs: "",
+      lefts: "",
+      rights: "",
+      chordings: "",
+      thrp: "",
+    });
+    let option_x;
+    let option_y;
+
+    const get_ms_toollib = async () => {
+      return await import("ms-toollib");
+    };
+    get_ms_toollib().then((ms) => {
+      const request = new XMLHttpRequest();
+      request.onload = () => {
+        let r = new Uint8Array(request.response);
+        let video = ms.AvfVideo.new(r);
+        video.parse_video();
+        // console.log(video.get_bbbv);
+        // console.log(video.get_player);
+        video.analyse();
+        p.value.player = video.get_player;
+        p.value.time = video.get_r_time;
+        p.value.bvs = video.get_bbbv_s;
+        p.value.bv = video.get_bbbv;
+        p.value.lefts = `${video.get_lefts}@${video.get_lefts_s}`;
+        p.value.rights = `${video.get_rights}@${video.get_rights_s}`;
+        p.value.chordings = `${video.get_chordings}@${video.get_chordings_s}`;
+        p.value.thrp = video.get_thrp;
+
+        option_x = get_x_track(video);
+        let myChart_row = echarts.init(document.getElementById("row"));
+        option_y = get_y_track(video);
+        let myChart_column = echarts.init(document.getElementById("column"));
+
+        myChart_row.setOption(option_x);
+        myChart_column.setOption(option_y);
       };
+      request.onerror = (e) => {
+        console.log(555);
+      };
+      // console.log(props.file);
+      request.open("GET", `/video/${props.file}`);
+      request.responseType = "arraybuffer";
+      request.send();
+      // console.log(ms.laymine_number(16, 30, 99, 0, 0));
+    });
+    onBeforeMount(() => {
+      // console.log(ms);
+      // console.log(ms-toollib)
     });
 
     onMounted(() => {
-      let myChart = echarts.init(document.getElementById("row"));
-      // 指定图表的配置项和数据
-      let option = {
-        xAxis: {
-          type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        },
-        yAxis: {
-          type: "value",
-        },
-        series: [
-          {
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: "line",
-            smooth: true,
-          },
-        ],
-      };
-      myChart.setOption(option);
+      let w = getCurrentInstance().refs.video_iframe.contentWindow;
+      console.log(
+        props.file
+      );
+      // 预期是一进入这个页面就自动开始播放props.file这个录像
     });
-  },
-  data() {
     return {
-      leaderboard: jsonData,
+      p,
+      option_x,
     };
   },
 };
 </script>
+
+<style>
+.detail {
+  font-size: 15px;
+  margin: 2px 0px 2px 20%;
+  text-align: left;
+}
+</style>
+
+

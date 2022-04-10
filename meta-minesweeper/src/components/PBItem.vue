@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'video', params: { file: pb.file } }">
+  <router-link :to="{ name: 'video_', params: { file: pb.file } }">
     <div id="pb_item" :style="classArray">
       <div id="bbbv">{{ bbbv }}</div>
       <div id="para" v-if="para == 0">{{ pb.level }}</div>

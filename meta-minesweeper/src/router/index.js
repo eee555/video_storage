@@ -23,15 +23,20 @@ const routes = [
   //   component: Player
   // },
   {
-    path: '/video/:file',
-    name: 'video',
-    component: VideoDetail
+    path: '/video_/:file',
+    name: 'video_',
+    component: VideoDetail,
+    props($route) {
+      return {
+        file: $route.params.file,
+      }
+    }
   },
-  {
-    path: '/:notfound(.*)',
-    name: '404',
-    component: NotFoundView
-  }
+  // {
+  //   path: '/:notfound(.*)',
+  //   name: '404',
+  //   component: NotFoundView
+  // }
 ]
 
 const router = createRouter({

@@ -5,4 +5,8 @@ import naive from 'naive-ui'
 // import VueResource from 'vue-resource'
 
 
-createApp(App).use(router).use(naive).mount('#app')
+let app = createApp(App);
+app.use(router).use(naive).mount('#app');
+// app.component(
+//     () => {import * as ms from "ms-toollib"}
+// )
