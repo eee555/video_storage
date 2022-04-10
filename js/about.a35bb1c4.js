@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkmeta_minesweeper"]=self["webpackChunkmeta_minesweeper"]||[]).push([[443],{7381:function(e,n,t){t.r(n),t.d(n,{default:function(){return l}});var a=t(6252);const r={class:"about"},s=(0,a._)("h1",null,"This is an about page",-1),u=[s];function i(e,n){return(0,a.wg)(),(0,a.iD)("div",r,u)}var c=t(3744);const o={},f=(0,c.Z)(o,[["render",i]]);var l=f}}]);
-//# sourceMappingURL=about.3329c40e.js.map
+//# sourceMappingURL=about.a35bb1c4.js.map
