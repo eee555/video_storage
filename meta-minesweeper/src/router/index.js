@@ -32,11 +32,11 @@ const routes = [
       }
     }
   },
-  // {
-  //   path: '/:notfound(.*)',
-  //   name: '404',
-  //   component: NotFoundView
-  // }
+  {
+    path: '/:notfound(.*)',
+    name: '404',
+    component: NotFoundView
+  }
 ]
 
 const router = createRouter({

@@ -49,5 +49,16 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: build
+      run: |
+        cd meta-minesweeper
+        npm run build
+    - name: buildAndDeploy
+      uses: JamesIves/github-pages-deploy-action@master 
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: github-page
+        FOLDER: dist
+        BUILD_SCRIPT: npm install && npm run build && cp Arbiter_0.52.3/replays/*.avf dist/video/ && cp Arbiter_0.52.3/replays2/*.avf dist/video/
 
 

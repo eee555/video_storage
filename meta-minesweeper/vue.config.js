@@ -9,5 +9,9 @@ module.exports = {
     experiments: {
       syncWebAssembly: true,
     },
-  }
+  },
+  outputDir: 'dist',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/video_storage/'
+    : '/'
 }

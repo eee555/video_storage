@@ -2,6 +2,7 @@
   "name": "meta-minesweeper",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://eee555.github.io/video_storage",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

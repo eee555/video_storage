@@ -56,7 +56,7 @@
   <!-- 代码可从 https://github.com/hgraceb/flop-player/releases 下载 -->
   <iframe
     class="flop-player-iframe flop-player-display-none"
-    style="width: 75%; height: 600px"
+    style="width: 65%; height: 500px"
     src="/flop/index.html"
     ref="video_iframe"
   ></iframe>
