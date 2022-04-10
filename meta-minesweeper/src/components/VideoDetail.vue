@@ -63,7 +63,13 @@
 </template>
 
 <script>
-import { onMounted, onBeforeMount, ref, getCurrentInstance } from "vue";
+import {
+  onMounted,
+  onBeforeMount,
+  ref,
+  getCurrentInstance,
+  onBeforeUnmount,
+} from "vue";
 import { get_x_track, get_y_track } from "../utils/get_track";
 import jsonData from "/static/v.json";
 import * as echarts from "echarts";
@@ -91,6 +97,8 @@ export default {
     });
     let option_x;
     let option_y;
+    let myChart_row = ref("")
+    let myChart_column = ref("")
 
     const get_ms_toollib = async () => {
       return await import("ms-toollib");
@@ -114,9 +122,9 @@ export default {
         p.value.thrp = video.get_thrp;
 
         option_x = get_x_track(video);
-        let myChart_row = echarts.init(document.getElementById("row"));
+        myChart_row = echarts.init(document.getElementById("row"));
         option_y = get_y_track(video);
-        let myChart_column = echarts.init(document.getElementById("column"));
+        myChart_column = echarts.init(document.getElementById("column"));
 
         myChart_row.setOption(option_x);
         myChart_column.setOption(option_y);
@@ -137,12 +145,10 @@ export default {
 
     onMounted(() => {
       let w = getCurrentInstance().refs.video_iframe.contentWindow;
-      console.log(
-        props.file
-      );
+      console.log(props.file);
       // 预期是一进入这个页面就自动开始播放props.file这个录像，在iframe标签的位置
 
-      const uri = `../video/${props.file}`
+      const uri = `../video/${props.file}`;
       // 等待 Flop Player 初始化完成
       window.flop = {
         onload: () => {
@@ -150,19 +156,31 @@ export default {
           window.flop.playVideo(uri, {
             share: {
               uri: uri,
-              pathname: '/flop-player/player',
+              pathname: "/flop-player/player",
               anonymous: true,
-              background: '#eee',
-              title: 'Flop Player Share',
-              favicon: 'https://avatars.githubusercontent.com/u/38378650?s=32'
+              background: "#eee",
+              title: "Flop Player Share",
+              favicon: "https://avatars.githubusercontent.com/u/38378650?s=32",
             },
             anonymous: false,
-            background: 'rgba(0, 0, 0, .5)',
+            background: "rgba(0, 0, 0, .5)",
             listener: function () {
-              console.log('Flop player exit')
-            }
-          })
-        }
+              console.log("Flop player exit");
+            },
+          });
+        },
+      };
+    });
+    onBeforeUnmount(() => {
+      if (myChart_row.value) {
+        myChart_row.value.clear(); //清空图表
+        myChart_row.value.dispose(); //释放图表组件
+        myChart_row.value = null;
+      }
+      if (myChart_column.value) {
+        myChart_column.value.clear(); //清空图表
+        myChart_column.value.dispose(); //释放图表组件
+        myChart_column.value = null;
       }
     });
     return {
