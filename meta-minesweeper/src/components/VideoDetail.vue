@@ -142,7 +142,7 @@ export default {
       );
       // 预期是一进入这个页面就自动开始播放props.file这个录像，在iframe标签的位置
 
-      const uri = `../video_storage/video/${props.file}`
+      const uri = `../video/${props.file}`
       // 等待 Flop Player 初始化完成
       window.flop = {
         onload: () => {
