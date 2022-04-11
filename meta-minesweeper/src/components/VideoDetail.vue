@@ -56,7 +56,7 @@
   <!-- 代码可从 https://github.com/hgraceb/flop-player/releases 下载 -->
   <iframe
     class="flop-player-iframe flop-player-display-none"
-    style="width: 65%; height: 500px"
+    style="width: 65%; height: 500px; border: 0px;"
     src="/video_storage/flop/index.html"
     ref="video_iframe"
   ></iframe>
@@ -163,7 +163,7 @@ export default {
               favicon: "https://avatars.githubusercontent.com/u/38378650?s=32",
             },
             anonymous: false,
-            background: "rgba(0, 0, 0, .5)",
+            background: "rgba(255, 255, 255, .5)",
             listener: function () {
               console.log("Flop player exit");
             },
