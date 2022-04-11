@@ -122,12 +122,12 @@ export default {
         p.value.thrp = video.get_thrp;
 
         option_x = get_x_track(video);
-        myChart_row = echarts.init(document.getElementById("row"));
+        myChart_row.value = echarts.init(document.getElementById("row"));
         option_y = get_y_track(video);
-        myChart_column = echarts.init(document.getElementById("column"));
+        myChart_column.value = echarts.init(document.getElementById("column"));
 
-        myChart_row.setOption(option_x);
-        myChart_column.setOption(option_y);
+        myChart_row.value.setOption(option_x);
+        myChart_column.value.setOption(option_y);
       };
       request.onerror = (e) => {
         console.log(555);
