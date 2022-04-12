@@ -42,7 +42,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add meta-minesweeper/static/v.json meta-minesweeper/static/pb.json
+        git add meta-minesweeper/static/v.json meta-minesweeper/static/pb.json meta-minesweeper/static/tournament.json
         git commit -m "auto commit"
     - name: Pull changes
       run: git pull -r
