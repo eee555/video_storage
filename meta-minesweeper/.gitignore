@@ -23,3 +23,4 @@ pnpm-debug.log*
 *.sw?
 
 /public/video_storage/video/*.avf
+/static/*.json

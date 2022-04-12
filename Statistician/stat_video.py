@@ -3,6 +3,7 @@ import os, click, sys
 import json
 from io import StringIO
 
+# 统计所有录像
 # i.e.
 # python stat_video.py --video_dir ../videos > ../meta-minesweeper/static/v.json
 
@@ -32,6 +33,7 @@ def stat():
             video_info_list.append({"player": a.player, "row": a.row, 
                                     "column": a.column, "mine_num": a.mine_num, 
                                     "rtime": a.r_time, "bbbv": a.bbbv, "bbbv_s": a.bbbv_s,
+                                    "start_time": a.start_time,
                                     "file": avf_})
             
     click.echo(json.dumps(video_info_list))

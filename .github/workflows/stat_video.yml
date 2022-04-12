@@ -36,6 +36,7 @@ jobs:
         cd Statistician
         python stat_video.py > ../meta-minesweeper/static/v.json
         python get_pb.py --json_dir ../meta-minesweeper/static/v.json > ../meta-minesweeper/static/pb.json
+        python get_tournament.py --json_dir ../meta-minesweeper/static/v.json > ../meta-minesweeper/static/tournament.json
         cd ..
     - name: push
       run: |

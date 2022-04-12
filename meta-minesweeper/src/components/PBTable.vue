@@ -146,13 +146,13 @@ export default {
 
 <style>
 #hello {
-  width: 80%;
+  width: 100%;
   margin: 10px auto;
 }
 #leaderboard_item {
   /* border: 1px solid;
   border-radius: 3px; */
-  width: 75%;
+  width: 100%;
   margin: 10px auto;
   padding: 0px;
 }

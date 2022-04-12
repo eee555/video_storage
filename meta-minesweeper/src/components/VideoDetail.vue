@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>录像分析</h1>
-
+    <n-button type="primary" @click="goBack()" style="margin: 0px 0px 12px 0px"> 返回首页 </n-button>
     <n-table striped style="width: 60%; margin: 0px auto">
       <thead>
         <tr>
@@ -56,7 +56,7 @@
   <!-- 代码可从 https://github.com/hgraceb/flop-player/releases 下载 -->
   <iframe
     class="flop-player-iframe flop-player-display-none"
-    style="width: 65%; height: 500px; border: 0px;"
+    style="width: 65%; height: 500px; border: 0px"
     src="/video_storage/flop/index.html"
     ref="video_iframe"
   ></iframe>
@@ -73,6 +73,7 @@ import {
 import { get_x_track, get_y_track } from "../utils/get_track";
 import jsonData from "/static/v.json";
 import * as echarts from "echarts";
+import {useRouter} from "vue-router";
 // import * as ms from "ms-toollib";
 
 export default {
@@ -95,10 +96,11 @@ export default {
       chordings: "",
       thrp: "",
     });
+    const router = useRouter();
     let option_x;
     let option_y;
-    let myChart_row = ref("")
-    let myChart_column = ref("")
+    let myChart_row = ref("");
+    let myChart_column = ref("");
 
     const get_ms_toollib = async () => {
       return await import("ms-toollib");
@@ -145,7 +147,7 @@ export default {
 
     onMounted(() => {
       let w = getCurrentInstance().refs.video_iframe.contentWindow;
-      console.log(props.file);
+      // console.log(props.file);
       // 预期是一进入这个页面就自动开始播放props.file这个录像，在iframe标签的位置
 
       const uri = `../video/${props.file}`;
@@ -183,9 +185,14 @@ export default {
         myChart_column.value = null;
       }
     });
+
+    let goBack = ()=> {
+      router.push({path: "/"});
+    }
     return {
       p,
       option_x,
+      goBack,
     };
   },
 };
