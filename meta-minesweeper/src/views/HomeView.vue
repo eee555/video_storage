@@ -18,12 +18,12 @@
       />
     </n-carousel>
 
-    <n-tabs type="segment" style="width: 80%;margin: 0px auto;">
+    <n-tabs type="segment" style="width: 80%;margin: 0px auto;" tab-style="font-size:24px;">
       <n-tab-pane name="chap1" tab="我的PB">
         <PBTable></PBTable>
       </n-tab-pane>
       <n-tab-pane name="chap2" tab="比赛">
-        <div>这里是比赛</div>
+        <CurrentGame></CurrentGame>
       </n-tab-pane>
       <n-tab-pane name="chap3" tab="没想好">
         <div>这里没想好</div>
@@ -36,10 +36,12 @@
 // @ is an alias to /src
 // import Leaderboard from '@/components/Leaderboard.vue'
 import PBTable from "@/components/PBTable.vue";
+import CurrentGame from "@/components/CurrentGame.vue";
 export default {
   name: "HomeView",
   components: {
     PBTable,
+    CurrentGame,
   },
 };
 </script>
