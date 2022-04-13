@@ -33,6 +33,16 @@ const routes = [
     }
   },
   {
+    path: '/game_/:file',
+    name: 'game_',
+    component: VideoDetail,
+    props($route) {
+      return {
+        file: $route.params.file,
+      }
+    }
+  },
+  {
     path: '/:notfound(.*)',
     name: '404',
     component: NotFoundView

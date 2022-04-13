@@ -86,6 +86,7 @@ export default {
   },
   setup(props) {
     // const iframeWin = getCurrentInstance().ctx.$refs.video_iframe.contentWindow;
+    console.log(props.file);
     const p = ref({
       player: "",
       time: "",

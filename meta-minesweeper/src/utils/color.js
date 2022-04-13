@@ -40,6 +40,8 @@ export function get_color(pb, para) {
         value = pb.stnb
     } else if (para == 3) {
         value = pb.rqp
+    } else {
+        value = pb[para]
     }
     if (level == 'beg') {
         if (para == 'rtime' || para == 0) {
