@@ -7,7 +7,7 @@
       <div id="para" v-else-if="para == 2">{{ pb.stnb.toFixed(2) }}</div>
       <div id="para" v-else-if="para == 3">{{ pb.rqp.toFixed(2) }}</div>
       <br />
-      <p align="center" id="time">{{ pb.rtime.toFixed(2) }}s</p>
+      <div align="center" id="time">{{ pb.rtime.toFixed(2) }}s</div>
     </div></router-link
   >
 </template>
@@ -52,29 +52,28 @@ export default {
 <style>
 #pb_item {
   max-width: 200px;
-  padding: 0;
   border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 6px;
-  margin: 1px;
+  margin: 3px;
 }
 #bbbv {
-  margin: 3px;
+  margin-left: 3px;
   font-size: 16px;
   text-align: left;
-  display: inline;
+  /* display: inline; */
   float: left;
+  padding: 0px;
 }
 #para {
-  margin: 3px;
+  margin-right: 3px;
   font-size: 16px;
   text-align: right;
-  display: inline;
+  /* display: inline; */
   float: right;
+  padding: 0px;
 }
 #time {
-  margin: 2px;
   font-size: 20px;
-  margin: 9px 0px 3px 0px;
 }
 
 /* .router-link-active {

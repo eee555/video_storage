@@ -80,12 +80,6 @@ export default {
     msg: String,
   },
   setup() {
-    // const button_off = reactive({
-    //   color: "black",
-    // });
-    // const changeColorOn = () => {
-    //   button_off.color = "white";
-    // };
     onBeforeMount(() => {
       // commonJson = jsonData;
       // console.log(commonJson);
@@ -149,13 +143,6 @@ export default {
   width: 100%;
   margin: 10px auto;
 }
-#leaderboard_item {
-  /* border: 1px solid;
-  border-radius: 3px; */
-  width: 100%;
-  margin: 10px auto;
-  padding: 0px;
-}
 button {
   font-size: 18px;
   width: 100px;
@@ -174,10 +161,6 @@ button:hover {
   background-color: #797979; /* Green */
   color: white;
 }
-/* text {
-  font-size: 18px;
-  margin: 8px 50px 8px 5px;
-} */
 </style>
 
 
